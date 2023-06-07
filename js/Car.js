@@ -12,6 +12,8 @@ export class Car {
         this.price = kaina;
         this.tankSize = bakoTalpa;
         this.tankLevel = 0;
+        this.mileage = 0;
+        this.fuelConsumption = 10;  // L/100km
         this.isEngineOn = false;
     }
 
@@ -33,7 +35,19 @@ export class Car {
         return 'Isjungiau varykli ❌';
     }
 
+    updateMileage(fuelAmount) {
+        this.mileage += fuelAmount / this.fuelConsumption * 100;
+    }
+
+    currentMileage() {
+        return `Rida: ${this.mileage}km.`
+    }
+
     fillTank(amount) {
+        if (this.isEngineOn) {
+            return 'Nori uzpilti kuro? Sustok!';
+        }
+
         const emptySpace = this.tankSize - this.tankLevel;
         if (amount <= emptySpace) {
             this.tankLevel += amount;
@@ -43,6 +57,33 @@ export class Car {
             return `Pripilta kuro: ${emptySpace} litru. 💧`;
         } else {
             return `Kuro bakas yra pilnas 👍`;
+        }
+    }
+
+    drive(amount) {
+        if (!this.isEngineOn && this.tankLevel === 0) {
+            return 'Uzsipilk kuro!';
+        }
+        if (!this.isEngineOn) {
+            return 'Isijunk varykli!';
+        }
+
+        if (amount < this.tankLevel) {
+            this.tankLevel -= amount;
+            this.updateMileage(amount);
+
+            if (this.tankLevel === 0) {
+                this.engineStop();
+            }
+
+            return `Nuvaziuota sunaudojant ${amount} litru 🚗`;
+        } else {
+            const gasLeft = this.tankLevel;
+            this.tankLevel = 0;
+            this.engineStop();
+            this.updateMileage(gasLeft);
+
+            return `Nuvaziuota sunaudojant ${gasLeft} litru 🚗 ir issijunge varyklis.`;
         }
     }
 }
