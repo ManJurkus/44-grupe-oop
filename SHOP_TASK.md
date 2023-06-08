@@ -2,7 +2,7 @@
 
 -   Parduotuves prisistatymas:
     -   "Sveiki atvyke i [PAVADINIMAS]!"
--   Parduotuve gali nusirodyti kokia valiuta prekiauja
+-   Parduotuve gali nusirodyti kokia valiuta prekiauja;
 -   Parduotuve turi inventoriu (prekes);
 -   Preke:
     -   id (starts from: 1);
@@ -12,6 +12,10 @@
     -   kiekis;
 -   Inventoriu galima papildyti;
 -   Prekiu pardavimas;
+-   Galimybe pasalinti preke (atsikratome viso likucio);
+
+############################################################
+
 -   Pelno suvestine/ataskaita uz visa laikotarpi:
     -   prekes pavadinimas
     -   isigytas kiekis
@@ -20,7 +24,6 @@
     -   likutis
     -   prekes pelnas
     -   prekes balansas (islaidos - pelnas)
--   Galimybe pasalinti preke (atsikratome viso likucio);
 
 ```
 PELNO ATASKAITOS LENTELES PAVYZDYS:

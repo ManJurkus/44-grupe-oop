@@ -5,6 +5,7 @@
     "type": "module",
     "main": "index.js",
     "scripts": {
+        "shop": "nodemon ./runMyShop.js",
         "dev": "nodemon",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
