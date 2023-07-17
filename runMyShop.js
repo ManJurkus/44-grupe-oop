@@ -25,6 +25,9 @@ console.log(err6, msg6);
 const [err7, msg7] = kioskas.fillInventor(1, 50);
 console.log(err7, msg7);
 
-// console.log(kioskas.inventor);
-console.log(kioskas.summary());
+console.log(kioskas.inventor);
+// console.log(kioskas.summary());
+
+const [err8, msg8] = kioskas.findProductById(2);
+console.log(err8, msg8);
 
